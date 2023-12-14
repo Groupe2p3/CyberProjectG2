@@ -76,4 +76,4 @@ stages:
               appName: $(webAppName)
               runtimeStack: 'NODE|20.9'
               package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
-              startUpCommand: 'node bin/www'
+              startUpCommand: 'nodemon bin/www'
