@@ -8,7 +8,7 @@ trigger:
 
 
 pool:
-  vmImage: debian-latest
+  pool: default
 
 steps:
 - task: NodeTool@0
