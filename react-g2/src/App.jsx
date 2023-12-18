@@ -1,35 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// App.js
+import React, { useState, useEffect } from 'react';
+import Table from './components/Table';
+import Navbar from './components/Navbar';
+import Sidebar from './components/Sidebar';
+import dataTable from './data/dataTable.json';
+import Profil from './components/Profil';
+import SignUp from './components/SignUp';
+import Login from './components/Login';
+import './App.css';
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const [tableData, setTableData] = useState([]);
+
+  useEffect(() => {
+    // permet d'enregistrer les données de dataTable.json dans le state tableData
+    setTableData(dataTable);
+  }, []);
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div>
+      <Navbar />
+      <div className="app-container">
+        <Sidebar />
+        <div className="main-content">
+          <h1>Cybersecurity Solutions</h1>
+          <Table dataTable={tableData} />
+          <Profil />
+          <SignUp />
+          <Login />
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    </div>
+  );
+};
 
-export default App
+export default App;
