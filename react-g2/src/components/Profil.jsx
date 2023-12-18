@@ -19,16 +19,16 @@ const Profil = () => {
   return (
     <div className="profil-container">
       <div className="user-info">
-        <h2>Informations de l'utilisateur</h2>
-        <p><strong>Nom:</strong> {userInfo.nom}</p>
-        <p><strong>Email:</strong> {userInfo.email}</p>
-        <p><strong>Pays:</strong> {userInfo.pays}</p>
+        <h2>User Information</h2>
+        <p><strong>Name:</strong> {userInfo.nom}</p>
+        <p><strong>E-mail:</strong> {userInfo.email}</p>
+        <p><strong>Country:</strong> {userInfo.pays}</p>
       </div>
       <div className="company-info">
-        <h2>Informations de l'entreprise</h2>
-        <p><strong>Nom:</strong> {companyInfo.nom}</p>
-        <p><strong>Liste des solutions:</strong> {companyInfo.solutions.join(', ')}</p>
-        <p><strong>Siège social:</strong> {companyInfo.siegeSocial}</p>
+        <h2>Company Information</h2>
+        <p><strong>Name:</strong> {companyInfo.nom}</p>
+        <p><strong>List of solutions:</strong> {companyInfo.solutions.join(', ')}</p>
+        <p><strong>Headquarters:</strong> {companyInfo.siegeSocial}</p>
       </div>
     </div>
   );

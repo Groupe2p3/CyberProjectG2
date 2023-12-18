@@ -7,6 +7,7 @@ import dataTable from './data/dataTable.json';
 import Profil from './components/Profil';
 import SignUp from './components/SignUp';
 import Login from './components/Login';
+import Searchbar from './components/Searchbar';
 import './App.css';
 
 const App = () => {
@@ -24,6 +25,9 @@ const App = () => {
         <Sidebar />
         <div className="main-content">
           <h1>Cybersecurity Solutions</h1>
+          <div className="search">
+            <Searchbar />
+          </div>
           <Table dataTable={tableData} />
           <Profil />
           <SignUp />
