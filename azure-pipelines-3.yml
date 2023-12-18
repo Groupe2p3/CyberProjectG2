@@ -32,7 +32,7 @@ stages:
     steps:
     - task: NodeTool@0
       inputs:
-        versionSpec: '20.9'
+        versionSpec: '20.9.0'
       displayName: 'Install Node.js'
 
     - script: |
