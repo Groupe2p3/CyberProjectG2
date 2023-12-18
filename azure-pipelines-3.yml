@@ -37,6 +37,8 @@ stages:
 
     - script: |
         cd /home/site/wwwroot/api-cyber
+        npm install express-generator -g
+        npm install -g nodemon
         npm install cors
         npm install tedious
         npm install express
