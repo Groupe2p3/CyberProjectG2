@@ -36,7 +36,7 @@ stages:
       displayName: 'Install Node.js'
 
     - script: |
-        cd /home/site/wwwroot/api-cyber
+        cd ./api-cyber
         npm install express-generator -g
         npm install -g nodemon
         npm install cors
@@ -84,4 +84,4 @@ stages:
               appName: $(webAppName)
               runtimeStack: 'NODE|20.9'
               package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
-              startUpCommand: 'nodemon /home/site/wwwroot/api-cyber/bin/www'
+              startUpCommand: 'nodemon bin/www'
