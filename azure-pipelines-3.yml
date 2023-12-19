@@ -43,7 +43,6 @@ stages:
 
     - script: |
         cd ./api-cyber
-      
         npm install
         npm ci
         npm install express-generator -g
