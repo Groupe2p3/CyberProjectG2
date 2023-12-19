@@ -9,13 +9,13 @@ trigger:
 variables:
 
   # Azure Resource Manager connection created during pipeline creation
-  azureSubscription: '68ad07b6-4c25-4cb3-bdc5-0c3effa4ab02'
+  azureSubscription: '99975182-3554-4e85-8947-fe277e89e128'
 
   # Web app name
-  webAppName: 'APIWeb22'
+  webAppName: 'api-srv'
 
   # Environment name
-  environmentName: 'APIWeb22'
+  environmentName: 'api-srv'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
@@ -34,40 +34,36 @@ stages:
       inputs:
         versionSpec: '20.9.0'
       displayName: 'Install Node.js'
-    
-    - script: 
-      code: |
-      curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-      export NVM_DIR="$HOME/.nvm"
-      [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-      [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-      nvm install 20.9.0
-      cd ./api-cyber
-      npm install
-      npm install express-generator -g
-      npm install -g nodemon
-      npm install cors
-      npm install tedious
-      npm install express
-      npm install dotenv
-      npm run build --if-present
-      npm run test --if-present
-    displayName: 'npm install, build and test'
-  
-    env:
-  
-NODE_VERSION: '20.9.0'
-- task: ArchiveFiles@2
-  displayName: 'Archive files'
-  inputs:
-    rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
-    includeRootFolder: false
-    archiveType: zip
-    archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
-    replaceExistingArchive: true
 
-- upload: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
-  artifact: drop
+    - script: |
+        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+        export NVM_DIR="$HOME/.nvm"
+        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+        [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+        nvm install 20.9.0
+        cd ./api-cyber
+        npm install
+        npm install express-generator -g
+        npm install -g nodemon
+        npm install cors
+        npm install tedious
+        npm install express
+        npm install dotenv
+        npm run build --if-present
+        npm run test --if-present
+      displayName: 'npm install, build and test'
+
+    - task: ArchiveFiles@2
+      displayName: 'Archive files'
+      inputs:
+        rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
+        includeRootFolder: false
+        archiveType: zip
+        archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+        replaceExistingArchive: true
+
+    - upload: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+      artifact: drop
 
 - stage: Deploy
   displayName: Deploy stage
@@ -84,7 +80,7 @@ NODE_VERSION: '20.9.0'
         deploy:
           steps:
           - task: AzureWebApp@1
-            displayName: 'Azure Web App Deploy: APIWeb22'
+            displayName: 'Azure Web App Deploy: api-srv'
             inputs:
               azureSubscription: $(azureSubscription)
               appType: webAppLinux
