@@ -8,7 +8,7 @@ trigger:
 
 
 pool:
- Ubuntu: 'Ubuntu'
+ Ubuntu: 'server-web'
 
 steps:
 - task: NodeTool@0
