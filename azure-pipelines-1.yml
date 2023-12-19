@@ -32,18 +32,12 @@ stages:
     steps:
     - task: NodeTool@0
       inputs:
-        versionSpec: '20.9.0'
+        versionSpec: '20.9'
       displayName: 'Install Node.js'
 
     - script: 
-        cd /api-cyber
+        cd ./api-cyber
         npm install
-        npm install express-generator -g
-        npm install -g nodemon
-        npm install cors
-        npm install tedious
-        npm install express
-        npm install dotenv
         npm run build --if-present
         npm run test --if-present
       displayName: 'npm install, build and test'
@@ -57,7 +51,7 @@ stages:
         archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
         replaceExistingArchive: true
 
-    - upload:  $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+    - publish:  $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
       artifact: drop
 
 - stage: Deploy
@@ -80,6 +74,6 @@ stages:
               azureSubscription: $(azureSubscription)
               appType: webAppLinux
               appName: $(webAppName)
-              runtimeStack: 'NODE|20.9.0'
+              runtimeStack: 'NODE|20.9'
               package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
               startUpCommand: 'nodemon bin/www'
