@@ -2,14 +2,17 @@ import React from 'react';
 
 //define a function 
 
-const Forms = (props) => {
+const Forms = ({ dataForms }) => {
 
     return (
 
-<>
- {/* enter your JSX code here */} 
-
-</>);
+        <div className="forms">
+            <div className="btnContainer">
+                {dataForms.map((dataForm) => (
+                    <button key={dataForm.id}>{dataForm.TypeForm} : {dataForm.Description}</button>
+                ))}
+            </div>
+        </div>);
 
 };
 
