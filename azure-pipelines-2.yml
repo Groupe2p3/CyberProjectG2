@@ -8,7 +8,7 @@ trigger:
 
 
 pool:
- Deployment Groups: 'ServeurWebReact'
+ Ubuntu: 'Ubuntu'
 
 steps:
 - task: NodeTool@0
