@@ -16,4 +16,7 @@ steps:
     versionSpec: '20.x'
 - task: CmdLine@2
   inputs:
-    script: 'npm install'
+    script: |
+      cd api-cyber
+      
+      npm install
