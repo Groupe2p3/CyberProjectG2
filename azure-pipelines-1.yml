@@ -32,12 +32,23 @@ stages:
     steps:
     - task: NodeTool@0
       inputs:
-        versionSpec: '20.9'
+        versionSpec: '20.9.0'
       displayName: 'Install Node.js'
 
     - script: |
+        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+        export NVM_DIR="$HOME/.nvm"
+        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+        [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+        nvm install 20.9.0
         cd ./api-cyber
         npm install
+        npm install express-generator -g
+        npm install -g nodemon
+        npm install cors
+        npm install tedious
+        npm install express
+        npm install dotenv
         npm run build --if-present
         npm run test --if-present
       displayName: 'npm install, build and test'
@@ -74,6 +85,6 @@ stages:
               azureSubscription: $(azureSubscription)
               appType: webAppLinux
               appName: $(webAppName)
-              runtimeStack: 'NODE|20.9'
+              runtimeStack: 'NODE|20.9.0'
               package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
               startUpCommand: 'nodemon bin/www'
