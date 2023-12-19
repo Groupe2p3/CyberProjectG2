@@ -36,7 +36,7 @@ stages:
       displayName: 'Install Node.js'
 
     - script: 
-        cd ./api-cyber
+        cd /api-cyber
         npm install
         npm install express-generator -g
         npm install -g nodemon
