@@ -94,4 +94,4 @@ stages:
               appName: $(webAppName)
               runtimeStack: 'NODE|20.9.0'
               package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
-              startUpCommand: 'nodemon bin/www'
+              startUpCommand: 'nodemon app.js'
