@@ -20,6 +20,6 @@ steps:
     cd ./react-g2
     npm install
     npm run dev
-    npm run build
+  
    
   displayName: 'npm install and build'
