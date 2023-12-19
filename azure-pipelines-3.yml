@@ -41,10 +41,11 @@ stages:
         versionSpec: '20.9.x'
       displayName: 'Install Node.js'
 
-    - script: 
+    - script: |
         cd ./api-cyber
-        npm ci
+      
         npm install
+        npm ci
         npm install express-generator -g
         npm install -g nodemon
         npm install cors
