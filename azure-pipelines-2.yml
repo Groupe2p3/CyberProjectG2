@@ -1,9 +1,8 @@
 trigger:
 - main
 
-pool: Ubuntu 
 
-pool:
+pool: Ubuntu
   vmImage: 'ubuntu-latest'
 
 
