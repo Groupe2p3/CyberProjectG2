@@ -20,4 +20,4 @@ stages:
         npm install
         npm run build
       displayName: 'npm install, build, and test'
-- stage: deploy
+
