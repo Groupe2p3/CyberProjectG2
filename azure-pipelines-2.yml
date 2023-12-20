@@ -20,9 +20,8 @@ stages:
         npm install
         npm run build
       displayName: 'npm install, build, and test'
-      
-    - task: PublishBuildArtifacts@1
-      inputs:
-       PathtoPublish: '$(./reactg2)'
-       ArtifactName: 'drop'
-       publishLocation: 'Container'
+                                                
+                                                
+                                                 
+                                                 
+                                                 
