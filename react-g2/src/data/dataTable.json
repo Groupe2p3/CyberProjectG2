@@ -1,0 +1,23 @@
+[
+    {
+      "id": 1,
+      "name": "Solution A",
+      "company": "Company A",
+      "type": "Type A",
+      "price": "$1000"
+    },
+    {
+      "id": 2,
+      "name": "Solution B",
+      "company": "Company B",
+      "type": "Type B",
+      "price": "$1200"
+    },
+    {
+      "id": 3,
+      "name": "Solution C",
+      "company": "Company C",
+      "type": "Type C",
+      "price": "$800"
+    }
+  ]
