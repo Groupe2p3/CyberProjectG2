@@ -1,10 +1,12 @@
 trigger:
 - main
 
+pool: Ubuntu 
+
 pool:
   vmImage: 'ubuntu-latest'
 
-azureSubscription: '68ad07b6-4c25-4cb3-bdc5-0c3effa4ab02'
+
 
 stages:
 - stage: Build
