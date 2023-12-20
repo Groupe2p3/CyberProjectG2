@@ -18,7 +18,6 @@ stages:
     - script: |
         cd ./react-g2
         npm install
-        npm run dev
         npm test
         npm run build
       displayName: 'npm install, build, and test'
