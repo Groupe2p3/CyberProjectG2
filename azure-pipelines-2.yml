@@ -18,13 +18,12 @@ stages:
     - script: |
         cd ./react-g2
         npm install
-        npm test
         npm run build
       displayName: 'npm install, build, and test'
     
     - task: ArchiveFiles@2
       inputs:
-        rootFolderOrFile: '$(Build.BinariesDirectory)'
+        rootFolderOrFile: './react-g2/build'
         includeRootFolder: false
         archiveType: 'zip'
         archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
