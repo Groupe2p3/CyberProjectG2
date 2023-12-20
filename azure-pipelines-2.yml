@@ -16,7 +16,7 @@ pool: Ubuntu
 AppName:'ReactFront'
 
  # Environment name
-    environmentName: 'ReactFront'
+  environmentName:'ReactFront'
 # Agent VM image name
   vmImageName: 'ubuntu-latest'
 stages:
