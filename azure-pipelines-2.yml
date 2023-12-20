@@ -56,9 +56,6 @@ stages:
               displayName: 'Azure React Front deploy: REACT'
               inputs:
                 ConnectionType: 'AzureRM'
-                azureSubscription: $(azureSubscription)
-                appType: 'webAppLinux'
-                WebAppName: $(AppName)
                 packageForLinux: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
                 RuntimeStack: 'NODE|20.9.x'
                 StartupCommand: 'npm run dev'
