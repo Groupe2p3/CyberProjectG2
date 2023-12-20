@@ -13,7 +13,7 @@ pool: Ubuntu
  # azureSubscription: '68ad07b6-4c25-4cb3-bdc5-0c3effa4ab02'
 
 # Web app name
-AppName: 'ReactFront'
+AppName:'ReactFront'
 
  # Environment name
 environmentName: 'ReactFront'
