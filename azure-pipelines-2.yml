@@ -3,7 +3,7 @@ trigger:
 
 
 pool: Ubuntu
-  vmImage: 'ubuntu-latest'
+
 
 
 
