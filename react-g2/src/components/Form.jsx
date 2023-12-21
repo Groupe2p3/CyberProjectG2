@@ -37,7 +37,7 @@ const Form = ({ dataQuestions }) => {
 
             );
         } else { // ShortText
-            return <input type="text" autoFocus />;
+            return <input type="text"/>;
         }
     }
 

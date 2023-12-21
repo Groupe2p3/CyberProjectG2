@@ -38,7 +38,6 @@ const App = () => {
           <Table dataTable={tableData} />
           <SignUp />
           <Login />
-          <Forms dataForms={formData} />
           <Form dataQuestions={questionData} />
         </div>
       </div>

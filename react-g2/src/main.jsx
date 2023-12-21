@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import Profil from './components/Profil'
+import Forms from './components/Forms';
 import ErrorPage from "./error-page";
 import App from './App';
 import {
@@ -17,6 +18,11 @@ const router = createBrowserRouter([
   {
     path: "/profile",
     element: <Profil />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/forms",
+    element: <Forms />,
     errorElement: <ErrorPage />,
   },
 ]);

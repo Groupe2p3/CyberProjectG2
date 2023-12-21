@@ -1,16 +1,27 @@
 import React from 'react';
+import Navbar from './Navbar';
+import Sidebar from './Sidebar';
+import dataForms from '../data/dataForms.json';
 
 //define a function 
 
-const Forms = ({ dataForms }) => {
+const Forms = () => {
 
     return (
-
-        <div className="forms">
-            <div className="btnContainer">
-                {dataForms.map((dataForm) => (
-                    <button key={dataForm.id}>{dataForm.TypeForm} : {dataForm.Description}</button>
-                ))}
+        <div>
+            <Navbar />
+            <div className="app-container">
+                <Sidebar />
+                <div className="main-content">
+                    <h1>Mes formulaires</h1>
+                    <div className="forms">
+                        <div className="btnContainer">
+                            {dataForms.map((dataForm) => (
+                                <button key={dataForm.id}>{dataForm.TypeForm} : {dataForm.Description}</button>
+                            ))}
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>);
 
