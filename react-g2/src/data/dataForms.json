@@ -1,0 +1,12 @@
+[
+    {
+      "id": 1,
+      "TypeForm": "Company",
+      "Description": "Form to fill out your company information."
+    },
+    {
+      "id": 2,
+      "TypeForm": "Product",
+      "Description": "Form to fill out your product information."
+    }
+  ]
