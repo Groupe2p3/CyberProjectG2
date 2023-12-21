@@ -1,7 +1,7 @@
 trigger:
 - main
 
-pool: Ubuntu
+pool: d1P3Cyber-Ubuntu
 
 stages:
 - stage: Build
