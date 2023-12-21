@@ -25,9 +25,6 @@ const App = () => {
         <div className="main-content">
           <h1>Cybersecurity Solutions</h1>
           <Table dataTable={tableData} />
-          <Profil />
-          <SignUp />
-          <Login />
         </div>
       </div>
     </div>
