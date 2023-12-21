@@ -4,22 +4,25 @@ import Table from './components/Table';
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 import dataTable from './data/dataTable.json';
-import Profil from './components/Profil';
 import SignUp from './components/SignUp';
 import Login from './components/Login';
 import Searchbar from './components/Searchbar';
-import dataForms from './data/dataForms.json'
+import dataForms from './data/dataForms.json';
+import dataQuestions from './data/dataQuestions.json';
 import Forms from './components/Forms';
+import Form from './components/Form';
 import './App.css';
 
 const App = () => {
   const [tableData, setTableData] = useState([]);
   const [formData, setFormData] = useState([]);
+  const [questionData, setQuestionData] = useState([]);
 
   useEffect(() => {
     // permet d'enregistrer les données de dataTable.json dans le state tableData
     setTableData(dataTable);
     setFormData(dataForms);
+    setQuestionData(dataQuestions);
   }, []);
 
   return (
@@ -36,6 +39,7 @@ const App = () => {
           <SignUp />
           <Login />
           <Forms dataForms={formData} />
+          <Form dataQuestions={questionData} />
         </div>
       </div>
     </div>

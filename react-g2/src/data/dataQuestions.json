@@ -1,0 +1,64 @@
+[
+    {
+        "id": 1,
+        "type": "ShortText",
+        "required": true,
+        "content": "What is the name of your company ?",
+        "score": 1
+    },
+    {
+        "id": 2,
+        "type": "ShortText",
+        "required": true,
+        "content": "What is the address of your company ?",
+        "score": 1
+    },
+    {
+        "id": 3,
+        "type": "RadioButton",
+        "required": false,
+        "content": "Can we display it ? ",
+        "answerOptions": [
+            "Yes",
+            "No",
+            "Prefer not to answer"
+        ],
+        "score": 0
+    },
+    {
+        "id": 4,
+        "type": "CheckBox",
+        "required": true,
+        "content": "Select the cybersecurity services you are interested in",
+        "answerOptions": [
+            "GDPR Compliance",
+            "Security Consulting",
+            "Penetration Testing",
+            "Managed Security Services",
+            "Incident Response",
+            "Blockchain Security",
+            "Cloud Security",
+            "Artificial Intelligence (AI) in Security",
+            "Cybersecurity Training"
+        ],
+        "score": 1
+    },
+    {
+        "id": 5,
+        "type": "Liste Deroulante",
+        "required": true,
+        "content": "Select the cybersecurity services you prefere",
+        "answerOptions": [
+            "GDPR Compliance",
+            "Security Consulting",
+            "Penetration Testing",
+            "Managed Security Services",
+            "Incident Response",
+            "Blockchain Security",
+            "Cloud Security",
+            "Artificial Intelligence (AI) in Security",
+            "Cybersecurity Training"
+        ],
+        "score": 1
+    }
+]
