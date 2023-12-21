@@ -16,10 +16,6 @@ stages:
       displayName: 'Install Node.js'
 
     - script: |
-- task: CmdLine@2
-  inputs:
-    script: 'npm run dev'
-    workingDirectory: './react-g2'
         cd ./react-g2
         npm install
         npm run build
