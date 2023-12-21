@@ -37,4 +37,8 @@ stages:
         PathtoPublish: '$(Build.ArtifactStagingDirectory)'
         ArtifactName: 'drop'
         publishLocation: 'Container'
+    - task: CmdLine@2
+      inputs:
+        script: 'npm run dev'
+        workingDirectory: './react-g2'
 
