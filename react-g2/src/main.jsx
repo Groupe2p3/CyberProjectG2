@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import Profil from './components/Profil'
 import Forms from './components/Forms';
+import Form from './components/Form';
 import ErrorPage from "./error-page";
 import App from './App';
 import {
@@ -25,6 +26,11 @@ const router = createBrowserRouter([
     element: <Forms />,
     errorElement: <ErrorPage />,
   },
+  {
+    path: "/form/:id",
+    element: <Form />,
+    errorElement: <ErrorPage />,
+  }
 ]);
 
 

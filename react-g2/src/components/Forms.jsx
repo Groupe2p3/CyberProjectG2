@@ -17,7 +17,7 @@ const Forms = () => {
                     <div className="forms">
                         <div className="btnContainer">
                             {dataForms.map((dataForm) => (
-                                <button key={dataForm.id}>{dataForm.TypeForm} : {dataForm.Description}</button>
+                                <button key={dataForm.id}><a href={`/Form/${dataForm.id}`}>{dataForm.TypeForm} : {dataForm.Description}</a></button>
                             ))}
                         </div>
                     </div>
