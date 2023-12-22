@@ -1,7 +1,6 @@
 [
     {
         "id": 1,
-        "idForms": 1,
         "type": "ShortText",
         "required": true,
         "content": "What is the name of your company ?",
@@ -9,7 +8,6 @@
     },
     {
         "id": 2,
-        "idForms": 2,
         "type": "ShortText",
         "required": true,
         "content": "What is the address of your company ?",
@@ -17,7 +15,6 @@
     },
     {
         "id": 3,
-        "idForms": 1,
         "type": "RadioButton",
         "required": false,
         "content": "Can we display it ? ",
@@ -30,7 +27,6 @@
     },
     {
         "id": 4,
-        "idForms": 1,
         "type": "CheckBox",
         "required": true,
         "content": "Select the cybersecurity services you are interested in",
@@ -49,7 +45,6 @@
     },
     {
         "id": 5,
-        "idForms": 1,
         "type": "Liste Deroulante",
         "required": true,
         "content": "Select the cybersecurity services you prefere",
