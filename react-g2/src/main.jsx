@@ -13,7 +13,17 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-  },
+    loader: async () => {
+      const solutions = await fetch(`http://localhost:3000/homepage/solutions`);
+      if (solutions.status === 404) {
+        throw new Response('Pas de solutions', { status: 404});
+      }
+
+      const solutionsData = await solutions.json();
+      return { solutionsData};
+    },
+    errorElement: <ErrorPage />,
+  },  
   {
     path: "/profile",
     element: <Profil />,

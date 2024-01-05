@@ -1,6 +1,11 @@
 import React from 'react';
 
-const Table = ({ dataTable }) => {
+const Table = ({ dataTable, setSortBy, setSortOrder }) => {
+  const handleSort = (columnName) => {
+    setSortBy(columnName);
+    setSortOrder('asc');
+  };
+
   return (
     <div className="table-container">
       <table className="custom-table">
@@ -8,17 +13,17 @@ const Table = ({ dataTable }) => {
           <tr>
             <th>Name</th>
             <th>Company</th>
-            <th>Type</th>
-            <th>Price</th>
+            <th>Types</th>
+            <th onClick={() => handleSort('Price')} className='price'>Price</th>
           </tr>
         </thead>
         <tbody>
-          {dataTable.map(item => (
-            <tr key={item.id}>
-              <td>{item.name}</td>
-              <td>{item.company}</td>
-              <td>{item.type}</td>
-              <td>{item.price}</td>
+          {dataTable.map((item) => (
+            <tr key={item.Id}>
+              <td>{item.SolutionName}</td>
+              <td>{item.CompanyName}</td>
+              <td>{item.TypeForm}</td>
+              <td>{item.Price}</td>
             </tr>
           ))}
         </tbody>
