@@ -35,3 +35,10 @@ exports.type = async function(req, res) {
         .status(200)
         .json(type);
 }
+
+exports.search = async function(req, res) {
+    const solutions = await homepageService.search(req.params.content);
+    res
+        .status(200)
+        .json(solutions);
+}

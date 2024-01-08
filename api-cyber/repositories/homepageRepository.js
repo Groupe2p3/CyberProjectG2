@@ -8,6 +8,7 @@ exports.getSolutions = async function() {
         ON t."IdCompany" = c."IdCompany"
         INNER JOIN "Cyber"."FormAnswer" fa
         ON c."IdFormAnswer" = fa."IdFormAnswer"
+        ORDER BY t."IdSolution"
     `, []);
     return result;
 }
@@ -37,6 +38,7 @@ exports.getTypes = async function() {
     const result = await db.query(`
         SELECT DISTINCT fa."TypeForm", fa."IdFormAnswer"
         FROM "Cyber"."FormAnswer" fa
+        ORDER BY fa."IdFormAnswer"
     `, []);
     return result;
 }
@@ -54,3 +56,14 @@ exports.getType = async function(name) {
     return result;
 }
 
+exports.search = async function(query) {
+    const result = await db.query(`
+    SELECT t."IdSolution" AS "Id", t."Name" AS "SolutionName", t."Price" AS "Price", c."Name" AS "CompanyName", fa."TypeForm" AS "TypeForm"
+FROM "Cyber"."Solution" t
+INNER JOIN "Cyber"."Company" c ON t."IdCompany" = c."IdCompany"
+INNER JOIN "Cyber"."FormAnswer" fa ON c."IdFormAnswer" = fa."IdFormAnswer"
+WHERE 
+  (t."Name" = $1 OR c."Name" = $1 OR fa."TypeForm" = $1);
+`, [query]);
+    return result;
+}

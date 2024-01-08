@@ -23,4 +23,10 @@ exports.getTypes = async function() {
 exports.getType = async function(name) {
     const type = await homepageRepository.getType(name);
     return type;
+}   
+
+exports.search = async function(query) {
+    const solutions = await homepageRepository.search(query);
+    return solutions;
 }
+

@@ -1,0 +1,314 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "Gestion de domaines",
+      "description": "API utilisée pour la gestion des domaines",
+      "contact": {
+        "name": "Groupe2",
+        "email": "your.email@example.com"
+      }
+    },
+    "basePath": "/",
+    "schemes": ["http", "https"],
+    "consumes": ["application/json"],
+    "produces": ["application/json"],
+    "tags": [
+      {
+        "name": "Users",
+        "description": "Gestion des utilisateurs"
+      },
+      {
+        "name": "Forms",
+        "description": "Gestion des formulaires"
+      },
+      {
+        "name": "Solutions",
+        "description": "Gestion des solutions"
+      },
+      {
+        "name": "PossibleAnswer",
+        "description": "Gestion des possibleAnswer"
+      }
+    ],
+    "paths": {
+      "/users": {
+        "get": {
+          "summary": "Récupère la liste des utilisateurs",
+          "tags": [
+            "Users"
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/User"
+                }
+              }
+            }
+          }
+        }
+      },
+      "/user/{id}": {
+        "get": {
+          "summary": "Récupère un utilisateur",
+          "tags": [
+            "Users"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "ID de l'utilisateur",
+              "required": true,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          }
+        }
+      },
+      "/user": {
+        "post": {
+          "summary": "Crée un nouvel utilisateur",
+          "tags": [
+            "Users"
+          ],
+          "parameters": [
+            {
+              "name": "user",
+              "in": "body",
+              "description": "User object",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Utilisateur créé",
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          }
+        }
+      },
+      "/user/{id}/solutions": {
+        "get": {
+          "summary": "Récupère la liste des solutions d'un utilisateur",
+          "tags": [
+            "Solutions"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "ID de l'utilisateur",
+              "required": true,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Domain"
+                }
+              }
+            }
+          }
+        }
+      },
+      "/solutions": {
+        "get": {
+          "summary": "Récupère la liste des solutions",
+          "tags": [
+            "Solutions"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "ID de l'utilisateur",
+              "required": true,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Domain"
+                }
+              }
+            }
+          }
+        }
+      },
+      "/forms": {
+        "get": {
+          "summary": "Récupère la liste des formulaires",
+          "tags": [
+            "Forms"
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Domain"
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "summary": "Crée un nouveau formulaire",
+          "tags": [
+            "Forms"
+          ],
+          "parameters": [
+            {
+              "name": "domain",
+              "in": "body",
+              "description": "Domain object",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Domain"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Domaine créé",
+              "schema": {
+                "$ref": "#/definitions/Domain"
+              }
+            }
+          }
+        }
+      },
+      "/form/{id}/questions": {
+        "get": {
+          "summary": "Récupère la liste des question d'un formulaire",
+          "tags": [
+            "Forms"
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Domain"
+                }
+              }
+            }
+          }
+        }
+      },
+      "/form/{id}": {
+        "get": {
+          "summary": "Récupère un formlaire par son id",
+          "tags": [
+            "Forms"
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Domain"
+                }
+              }
+            }
+          }
+        }
+      },
+      "/question/{id}/possible-answer": {
+        "get": {
+          "summary": "Récupère la liste des réponses possibles d'une question",
+          "tags": [
+            "PossibleAnswer"
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "User": {
+        "type": "object",
+        "properties": {
+          "LastName": {
+            "type": "string"
+          },
+          "FirstName": {
+            "type": "string"
+          },
+          "Email": {
+            "type": "string"
+          },
+          "Password": {
+            "type": "string"
+          },
+          "Role": {
+            "type": "string"
+          }
+        }
+      },
+      "Domain": {
+        "type": "object",
+        "properties": {
+          "UserId": {
+            "type": "integer"
+          },
+          "Name": {
+            "type": "string"
+          }
+        }
+      },
+      "RecordRequest": {
+        "type": "object",
+        "properties": {
+          "domainId": {
+            "type": "integer"
+          },
+          "recordName": {
+            "type": "string"
+          },
+          "recordType": {
+            "type": "string"
+          },
+          "UserId": {
+            "type": "integer"
+          }
+        }
+      }
+    }
+  }

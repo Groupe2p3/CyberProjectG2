@@ -8,7 +8,6 @@ const Searchbar = ({ setTableData, solutions, setSortBy, setSortOrder }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
-    // Fetch data from your API and update state
     fetch('http://localhost:3000/homepage/types')
       .then(response => response.json())
       .then(data => setTypes(data));
@@ -19,16 +18,31 @@ const Searchbar = ({ setTableData, solutions, setSortBy, setSortOrder }) => {
   }, []);
 
   const handleSearch = () => {
-    const filteredData = solutions.filter(item => {
-      const typeMatch = selectedType === 'Tout' || item.TypeForm === selectedType;
-      const originMatch = selectedOrigin === 'Tout' || item.CompanyName === selectedOrigin;
-      const searchTermMatch = item.SolutionName.includes(searchTerm);
-
-      return typeMatch && originMatch && searchTermMatch;
-    });
-
-    setTableData(filteredData);
-  };
+    let apiUrl = 'http://localhost:3000/homepage/solutions';
+  
+    if (selectedType !== 'Tout') {
+      apiUrl = `http://localhost:3000/homepage/types/${selectedType}`;
+    } else if (selectedOrigin !== 'Tout') {
+      apiUrl = `http://localhost:3000/homepage/companies/${selectedOrigin}`;
+    } else if (searchTerm !== '') {
+      apiUrl = `http://localhost:3000/homepage/search/${searchTerm}`;
+    }
+  
+    fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => {
+        if (data && data.length > 0) {
+          setTableData(data);
+        } else {
+          // la réponse est vide, on fait un colspan sur le tableau et on affiche un message 'aucune donnée trouvée' dans le tableau
+          setTableData([]);
+        }
+      })
+      .catch(error => {
+        console.error("Erreur lors de la recherche :", error);
+        // Gérer les erreurs de requête ici
+      });
+  };  
 
   return (
     <div className="search-inputs">
@@ -64,7 +78,6 @@ const Searchbar = ({ setTableData, solutions, setSortBy, setSortOrder }) => {
       </select>
       <div className="btnContainer">
         <button onClick={handleSearch}>Recherche</button>
-        
       </div>
     </div>
   );
