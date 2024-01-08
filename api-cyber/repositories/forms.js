@@ -1,6 +1,6 @@
-var db = require('./db')
+var db = require('../repositories/db')
 
 exports.getAllForms = async function() {
-    const result = await db.query('SELECT * from Form', [])
+    const result = await db.query('SELECT * from form', [])
     return result
 }

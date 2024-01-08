@@ -10,6 +10,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import './index.css'
+import { getAllForms } from './FormsRepository';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,9 @@ const router = createBrowserRouter([
   {
     path: "/forms",
     element: <Forms />,
+    loader: async () => {
+      return getAllForms();
+    },
     errorElement: <ErrorPage />,
   },
   {

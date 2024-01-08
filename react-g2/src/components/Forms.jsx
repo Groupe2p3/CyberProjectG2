@@ -1,11 +1,15 @@
+import { useLoaderData } from "react-router-dom";
+
 import React from 'react';
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
-import dataForms from '../data/dataForms.json';
 
 //define a function 
 
 const Forms = () => {
+    const forms = useLoaderData();
+
+    console.log(forms.data);
 
     return (
         <div>
@@ -16,10 +20,10 @@ const Forms = () => {
                     <h1>Mes formulaires</h1>
                     <div className="forms">
                         <div className="btnContainer">
-                            {dataForms.map((dataForm) => (
+                            {forms.data.map((dataForm) => (
                                 <form action={`/Form/${dataForm.id}`}>
                                     <button type="submit">
-                                        {dataForm.TypeForm} : {dataForm.Description}
+                                        {dataForm.nom} : {dataForm.description}
                                     </button>
                                 </form>
                             ))}
